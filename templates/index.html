@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Interactive Page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 style="text-align: center; margin: 20px 0;">Interactive Page</h1>
+    </header>
+    <div id="container">
+        <div id="upload-section">
+            <input type="file" id="upload-input" accept="image/*">
+            <label for="upload-input">Upload Image</label>
+        </div>
+
+        <div id="chat-section">
+            <div id="chat-messages"></div>
+            <div id="chat-input">
+                <input type="text" id="chat-message" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <div id="info-section">
+            <p>Scroll through this section to view information...</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at...</p>
+            <!-- Add more text content as needed -->
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const chatInput = document.getElementById('chat-message');
+            const chatMessages = document.getElementById('chat-messages');
+            const message = chatInput.value;
+
+            if (message.trim()) {
+                const messageDiv = document.createElement('div');
+                messageDiv.textContent = message;
+                chatMessages.appendChild(messageDiv);
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+    </script>
+</body>
+
+</html>
